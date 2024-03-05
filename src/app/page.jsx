@@ -18,6 +18,5 @@ const Home = ({searchParams}) => {
     </div>
   );
 }
-export const runtime = "edge"
 
 export default Home;
