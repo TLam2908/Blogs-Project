@@ -58,11 +58,13 @@ const WritePage = () => {
   }, [file]);
 
   const handleChange = (e) => {
-    if (typeof window !== 'undefined') {
-      setFile(e.target.files[0]);
-      setPreview(URL.createObjectURL(e.target.files[0]));
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      setPreview(URL.createObjectURL(selectedFile));
     }
   };
+  
 
   const { status } = useSession();
   const router = useRouter();
