@@ -43,17 +43,17 @@ const AuthLink = () => {
       </div>
 
       {open && (
-        <div className="absolute w-full h-full top-[100px] left-0 flex z-[1] flex-col items-center justify-center gap-[50px] text-[36px] bg-white dark:bg-[#0f172a] sm:hidden">
-          <Link href="/">Homepage</Link>
-          <Link href="/about">About</Link>
+        <div className="absolute w-full h-full top-[100px] left-0 flex z-[100] flex-col items-center justify-center gap-[50px] text-[36px] bg-white dark:bg-[#0f172a] sm:hidden">
+          <Link href="/" onClick={() => setOpen(!open)}>Homepage</Link>
+          <Link href="/about"  onClick={() => setOpen(!open)}>About</Link>
           {status === "authenticated" ? (
             <>
-              <Link href="/myposts">My Posts</Link>
-              <Link href="/write">Write</Link>
+              <Link href="/myposts" onClick={() => setOpen(!open)}>My Posts</Link>
+              <Link href="/write"  onClick={() => setOpen(!open)}>Write</Link>
               <span className=" cursor-pointer">Logout</span>
             </>
           ) : (
-            <Link href="/login">Login</Link>
+            <Link href="/login" onClick={() => setOpen(!open)}>Login</Link>
           )}
         </div>
       )}

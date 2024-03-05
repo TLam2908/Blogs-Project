@@ -7,7 +7,7 @@ const Skills = () => {
   return (
     <div
       name="skills"
-      className="w-full h-screen bg-white dark:bg-[#0f172a] dark:text-gray-300 text-black"
+      className="w-full h-[110vh] bg-white dark:bg-[#0f172a] dark:text-gray-300 text-black"
     >
       {/* Container */}
       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
