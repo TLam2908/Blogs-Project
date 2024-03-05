@@ -13,7 +13,6 @@ import { useSession } from "next-auth/react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 import toast from "react-hot-toast";
-import { set } from "firebase/database";
 
 const WritePage = () => {
   const [preview, setPreview] = useState("");
@@ -59,8 +58,10 @@ const WritePage = () => {
   }, [file]);
 
   const handleChange = (e) => {
-    setFile(e.target.files[0]);
+    if (typeof document !== 'undefined') {
+      setFile(e.target.files[0]);
     setPreview(URL.createObjectURL(e.target.files[0]));
+    }
   };
 
   const { status } = useSession();
