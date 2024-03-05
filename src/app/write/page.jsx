@@ -58,9 +58,9 @@ const WritePage = () => {
   }, [file]);
 
   const handleChange = (e) => {
-    if (typeof document !== 'undefined') {
+    if (typeof window !== 'undefined') {
       setFile(e.target.files[0]);
-    setPreview(URL.createObjectURL(e.target.files[0]));
+      setPreview(URL.createObjectURL(e.target.files[0]));
     }
   };
 
