@@ -10,9 +10,11 @@ import { app } from "@/utils/firebase";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 import toast from "react-hot-toast";
+import dynamic from 'next/dynamic';
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const WritePage = () => {
   const [preview, setPreview] = useState("");
@@ -58,13 +60,10 @@ const WritePage = () => {
   }, [file]);
 
   const handleChange = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
-      setFile(selectedFile);
-      setPreview(URL.createObjectURL(selectedFile));
-    }
+    if (typeof document !== 'undefined')  
+    setFile(e.target.files[0]);
+    setPreview(URL.createObjectURL(e.target.files[0]));
   };
-  
 
   const { status } = useSession();
   const router = useRouter();
