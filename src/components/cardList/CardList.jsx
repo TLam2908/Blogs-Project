@@ -29,7 +29,7 @@ const CardList = async ({page, cat}) => {
       <h1 className="font-bold text-3xl my-12 mx-0">Recent Posts</h1>
       <div>
         {posts?.map((post) => ( // Fix the error by ensuring postData is an array
-          <Card post={post} />
+          <Card key={post.id} post={post} />
         ))}
       </div>
       <Pagination page={page} hasNext={hasNext} hasPrev={hasPrev}/>

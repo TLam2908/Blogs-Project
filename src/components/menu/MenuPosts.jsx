@@ -16,7 +16,7 @@ const MenuPosts = async (props) => {
   return (
     <div className="mt-9 mb-14 flex flex-col gap-9">
       {data.map((featuredPost) => (
-        <Link href={`/posts/${featuredPost.slug}`} className="flex items-center gap-5">
+        <Link key={featuredPost.id} href={`/posts/${featuredPost.slug}`} className="flex items-center gap-5">
           <div className="basis-1/4 relative aspect-[1/1]">
             <Image
               src={featuredPost.img}
