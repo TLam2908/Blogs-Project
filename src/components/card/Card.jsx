@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Card = ({post}) => {
   return (
-    <div className="flex gap-[50px] items-center mb-12" key={post._id}>
+    <div className="flex gap-[50px] items-center mb-12" key={post.id}>
       {post.img && <div className="flex-1 h-[350px] relative max-lg:hidden">
         <Image src={`${post.img}`} alt="" fill sizes="(max-width: 1280px) w-[300px]" className="object-cover" />
       </div>}

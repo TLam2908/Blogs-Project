@@ -29,7 +29,7 @@ const MenuPostBasis = (props) => {
   }
 
   return (
-    <div className="basis-3/4 flex flex-col gap-1">
+    <div className="basis-3/4 flex flex-col gap-1" key={featuredPost.id}>
     <span className={` text-white rounded-[12px] py-1 px-3 text-center w-max text-[15px] ${colorVariants[color]} capitalize`}>
       {featuredPost.catSlug}
     </span>
