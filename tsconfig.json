@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.js", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/categoryList/CategoryList.jsx", "src/components/cardList/CardList.jsx", "src/components/card/Card.jsx", "src/components/authLink/AuthLink.jsx", "src/app/page.jsx", "src/app/layout.jsx", "src/app/write/page.jsx", "src/app/posts/[slug]/page.jsx", "src/app/login/page.jsx", "src/app/blog/page.jsx", "src/app/api/posts/route.js", "src/app/api/posts/[slug]/route.js", "src/app/api/comments/route.js", "src/app/api/categories/route.js", "src/app/api/auth/[...nextauth]/route.js", "src/components/comments/Comments.jsx", "src/app/api/comments/route.js", "src/app/api/categories/route.js", "src/app/api/auth/[...nextauth]/route.js", "src/utils/connect.js", "src/utils/auth.js", "src/providers/ThemeProviders.jsx", "src/providers/AuthProvider.jsx", "src/components/toggleButton/ToggleButton.jsx", "src/components/pagination/Pagination.jsx", "src/components/navbar/Navbar.jsx", "src/components/menu/MenuPostBasis.jsx", "src/components/menu/MenuPost.jsx", "src/components/menu/MenuCategories.jsx", "src/components/menu/Menu.jsx", "src/components/menu/MenuPosts.jsx", "src/components/footer/Footer.jsx", "src/components/featured/Featured.jsx"],
+  "exclude": ["node_modules"]
+}
