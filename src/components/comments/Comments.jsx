@@ -20,7 +20,7 @@ const Comments = ({ postSlug }) => {
   const router = useRouter();
   const { status } = useSession();
   const { data, mutate, isLoading } = useSWR(
-    `http://localhost:3000/api/comments?postSlug=${postSlug}`,
+    `/api/comments?postSlug=${postSlug}`,
     fetcher
   );
 
@@ -35,7 +35,7 @@ const Comments = ({ postSlug }) => {
   };
 
   const deletePost = async () => {
-    const res = await fetch(`http://localhost:3000/api/posts/${postSlug}`, {
+    const res = await fetch(process.env.API_PATH + `/api/posts/${postSlug}`, {
       method: "DELETE"
     })
     if (!res.ok) {

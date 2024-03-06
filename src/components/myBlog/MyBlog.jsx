@@ -1,7 +1,7 @@
 "use client";
 import Card from "../card/Card";
 const myPosts = async () => {
-  const res = await fetch("http://localhost:3000/api/myposts");
+  const res = await fetch(process.env.API_PATH + "/api/myposts");
   if (!res) {
     throw new Error("Something went wrong");
   }

@@ -4,7 +4,7 @@ import Image from "next/image";
 import MenuPost from "./MenuPost";
 
 const getViewPosts = async () => {
-  const res = await fetch(`http://localhost:3000/api/views`);
+  const res = await fetch(process.env.API_PATH + `/api/views`);
   if (!res.ok) {
     throw new Error("An error occurred while fetching the data");
   }
