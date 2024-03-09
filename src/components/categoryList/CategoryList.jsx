@@ -1,18 +1,19 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import getCategories from "@/actions/getCategories";
 
-const getData = async () => {
-  const res = await fetch(process.env.API_PATH + "/api/categories", {
-    cache: "no-cache",
-  });
+// const getData = async () => {
+//   const res = await fetch(process.env.API_PATH + "/api/categories", {
+//     cache: "no-cache",
+//   });
 
-  if (!res.ok) {
-    throw new Error("Something went wrong");
-  }
+//   if (!res.ok) {
+//     throw new Error("Something went wrong");
+//   }
 
-  return res.json();
-};
+//   return res.json();
+// };
 
 
 
@@ -27,7 +28,7 @@ const CategoryList = async () => {
     culture: 'bg-[#ffb04f45]'
   }
 
-  const data = await getData();
+  const data = await getCategories();
   return (
     <div>
       <h1 className="font-bold text-3xl my-12 mx-0">Popular Categories</h1>

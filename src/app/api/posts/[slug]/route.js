@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import prisma from "@/utils/connect";
-import { getAuthSession } from "@/utils/auth";
-
+import getCurrentUser from "@/actions/getCurrentUser";
 // get single post
 
 export const GET = async (req, { params }) => {
@@ -24,17 +23,17 @@ export const GET = async (req, { params }) => {
 };
 
 export const DELETE = async (req, { params }) => {
-  const session = await getAuthSession();
-  if (!session) {
+  const currentUser = await getCurrentUser();
+  if (!currentUser) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
-  const deleteComment = await prisma.comment.deleteMany({
+  const deleteComment = prisma.comment.deleteMany({
     where: { postSlug: params.slug },               
   })
 
-const deletePost = await prisma.post.delete({
-    where: { slug: params.slug, userEmail: session.user.email }
+const deletePost = prisma.post.delete({
+    where: { slug: params.slug, userEmail: currentUser.email}
 })
 
 try {

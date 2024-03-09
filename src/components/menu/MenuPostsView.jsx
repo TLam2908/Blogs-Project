@@ -2,14 +2,15 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import MenuPost from "./MenuPost";
+import getViewPosts from "@/actions/getViewPosts";
 
-const getViewPosts = async () => {
-  const res = await fetch(process.env.API_PATH + `/api/views`);
-  if (!res.ok) {
-    throw new Error("An error occurred while fetching the data");
-  }
-  return res.json();
-};
+// const getViewPosts = async () => {
+//   const res = await fetch(process.env.API_PATH + `/api/views`);
+//   if (!res.ok) {
+//     throw new Error("An error occurred while fetching the data");
+//   }
+//   return res.json();
+// };
 
 const MenuPostsView = async () => {
     const data = await getViewPosts();

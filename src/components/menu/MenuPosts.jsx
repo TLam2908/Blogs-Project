@@ -3,14 +3,15 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import MenuPostBasis from "./MenuPostBasis";
+import getFeaturedPosts from "@/actions/getFeaturedPosts";
 
-const getFeaturedPosts = async () => {
-  const res = await fetch(process.env.API_PATH + `/api/featured`);
-  if (!res.ok) {
-    throw new Error("An error occurred while fetching the data");
-  }
-  return res.json();
-};
+// const getFeaturedPosts = async () => {
+//   const res = await fetch(process.env.API_PATH + `/api/featured`);
+//   if (!res.ok) {
+//     throw new Error("An error occurred while fetching the data");
+//   }
+//   return res.json();
+// };
 
 const MenuPosts = async (props) => {
   const data = await getFeaturedPosts();

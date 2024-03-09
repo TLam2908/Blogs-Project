@@ -37,7 +37,7 @@ const MenuPost = (props) => {
      {viewPosts.title}
     </h3>
     <div className="text-[13px]">
-      <span></span>
+      <span>{viewPosts.name} - </span>
       <span className=" text-gray-500">{viewPosts.createAt.substring(0,10)}</span>
     </div>
   </div>

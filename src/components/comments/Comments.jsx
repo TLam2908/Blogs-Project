@@ -35,7 +35,7 @@ const Comments = ({ postSlug }) => {
   };
 
   const deletePost = async () => {
-    const res = await fetch(process.env.API_PATH + `/api/posts/${postSlug}`, {
+    const res = await fetch(`/api/posts/${postSlug}`, {
       method: "DELETE"
     })
     if (!res.ok) {

@@ -1,21 +1,21 @@
 
 import React from "react";
 import Link from "next/link";
-
-const getData = async () => {
-  const res = await fetch(process.env.API_PATH + "/api/categories", {
-    cache: "no-cache"
-  })
-  if (!res.ok) {
-    throw new Error ("Something went wrong")
-  }
-  const data = res.json()
-  return data
-}
+import getCategories from "@/actions/getCategories";
+// const getData = async () => {
+//   const res = await fetch(process.env.API_PATH + "/api/categories", {
+//     cache: "no-cache"
+//   })
+//   if (!res.ok) {
+//     throw new Error ("Something went wrong")
+//   }
+//   const data = res.json()
+//   return data
+// }
 
 const MenuCategories = async () => {
 
-  const categories = await getData()
+  const categories = await getCategories();
 
   return (
       <div className="flex flex-wrap gap-5 mt-9 mb-[60px]">

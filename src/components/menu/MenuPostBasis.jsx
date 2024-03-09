@@ -37,7 +37,7 @@ const MenuPostBasis = (props) => {
       {featuredPost.title}
     </h3>
     <div className="text-[13px]">
-      <span>{featuredPost.user}</span>
+      <span>{featuredPost.name} - </span>
       <span className=" text-gray-500">{featuredPost.createAt.substring(0, 10)}</span>
     </div>
   </div>

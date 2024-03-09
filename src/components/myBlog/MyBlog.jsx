@@ -1,16 +1,15 @@
-"use client";
-import Card from "../card/Card";
-const myPosts = async () => {
-  const res = await fetch(process.env.API_PATH + "/api/myposts");
-  if (!res) {
-    throw new Error("Something went wrong");
-  }
-  return await res.json();
-};
 
+import Card from "../card/Card";
+import getUserPosts from "@/actions/getUserPosts";
+// const myPosts = async () => {
+//   const res = await fetch(process.env.API_PATH + "/api/myposts");
+//   if (!res) {
+//     throw new Error("Something went wrong");
+//   }
+//   return await res.json();
+// };
 const MyBlog = async () => {
-  const blogData = await myPosts();
-  console.log(blogData);
+  const blogData = await getUserPosts();
   return (
     <div className="basis-full">
       {blogData?.map((post) => (
