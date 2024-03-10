@@ -5,6 +5,9 @@ export const GET = async (req) => {
     const queryWithFeatured = {
         where: {
             isFeatured: true
+        },
+        include: {
+            user: true
         }
     }
     try {

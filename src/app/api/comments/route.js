@@ -43,3 +43,23 @@ export const POST = async (req) => {
         return NextResponse.json({ message: 'Something went wrong!' }, { status: 500 })
     }
 }
+ // delete a comment
+export const DELETE = async (req) => {
+    const session = await getAuthSession()
+    if (!session) {
+        return NextResponse.json({ message: 'Unauthorized' }, { status: 401 })
+    }
+
+    const {searchParams} = new URL(req.url)
+    const id = searchParams.get('id')
+
+    try {
+        const comment = await prisma.comment.delete({
+            where: { id: id, userEmail: session.user.email }
+        })
+        return NextResponse.json(comment, { status: 200 })
+    } catch (err) {
+        console.log(err)
+        return NextResponse.json({ message: 'Something went wrong!' }, { status: 500 })
+    }
+}

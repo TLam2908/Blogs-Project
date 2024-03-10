@@ -7,6 +7,9 @@ export const GET = async (req) => {
         orderBy: {
           views: "desc",
         },
+        include: {
+          user: true
+        }
     };
     try {
         const viewPosts = await prisma.post.findMany(queryWithViews);

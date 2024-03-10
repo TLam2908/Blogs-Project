@@ -23,7 +23,6 @@ const Comments = ({ postSlug }) => {
     `/api/comments?postSlug=${postSlug}`,
     fetcher
   );
-
   const [desc, setDesc] = useState("");
   const handleSubmit = async () => {
     await fetch("/api/comments", {
@@ -36,16 +35,28 @@ const Comments = ({ postSlug }) => {
 
   const deletePost = async () => {
     const res = await fetch(`/api/posts/${postSlug}`, {
-      method: "DELETE"
-    })
+      method: "DELETE",
+    });
     if (!res.ok) {
-      toast.error("You can't delete this post")
-      return 
+      toast.error("You can't delete this post");
+      return;
     } else {
-      toast.success("Post deleted successfully")
-      router.push("/")
+      toast.success("Post deleted successfully");
+      router.push("/");
     }
-  }
+  };
+
+  const deleteComment = (id) => async () => {
+    const res = await fetch(`/api/comments?id=${id}`, {
+      method: "DELETE",
+    });
+    if (!res.ok) {
+      toast.error("You can't delete this comment");
+      return;
+    } else {
+      toast.success("Comment deleted successfully");
+    }
+  };
 
   return (
     <>
@@ -94,15 +105,23 @@ const Comments = ({ postSlug }) => {
                       </span>
                     </div>
                   </div>
-                  <p className="text-[#626262] dark:text-[#a6a6a6] text-[18px]">
-                    {item.desc}
-                  </p>
+                  <div className="flex flex-row gap-10 justify-between">
+                    <p className="text-[#626262] dark:text-[#a6a6a6] text-[18px]">
+                      {item.desc}
+                    </p>
+                    <button
+                      className="bg-red-500 text-white px-5 py-3 rounded-lg mt-10"
+                      onClick={deleteComment(item.id)}
+                    >
+                      Delete Comment
+                    </button>
+                  </div>
                 </div>
               ))}
         </div>
       </div>
       <button
-        className="bg-[#1a8917] text-white px-5 py-3 rounded-lg mt-10"
+        className="bg-red-500 text-white px-5 py-3 rounded-lg mt-10"
         onClick={deletePost}
       >
         Delete Post
